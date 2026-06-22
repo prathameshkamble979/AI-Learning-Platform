@@ -13,7 +13,7 @@
   [![Gemini AI](https://img.shields.io/badge/Powered_by-Gemini_AI-orange.svg?style=for-the-badge&logo=google)](https://ai.google.dev/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-  [**Explore the Docs**](#-table-of-contents) · [**View Demo**](#) · [**Report Bug**](#) · [**Request Feature**](#)
+  [**Explore the Docs**](#-table-of-contents) · [**View Live Demo**](https://ai-learning-platform-i9qfllshs-musics-projects.vercel.app) · [**Report Bug**](https://github.com/prathameshkamble979/AI-Learning-Platform/issues)
 </div>
 
 ---
@@ -130,7 +130,7 @@ AI-Learning-Platform/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/AI-Learning-Platform.git
+git clone https://github.com/prathameshkamble979/AI-Learning-Platform.git
 cd AI-Learning-Platform
 ```
 
@@ -178,6 +178,7 @@ Create a `.env` file in the `frontend` directory:
 ```env
 VITE_BACKEND_URL=http://localhost:8000
 VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+VITE_FIREBASE_APIKEY=your_firebase_api_key
 ```
 Start the frontend development server:
 ```bash
@@ -243,11 +244,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
-**[Your Name]** - [Your Email]
+**Prathamesh Kamble**
 
-* [Portfolio](https://your-portfolio-link.com)
-* [LinkedIn](https://linkedin.com/in/your-profile)
-* [GitHub](https://github.com/your-username)
+* [GitHub](https://github.com/prathameshkamble979)
 
 ---
 <div align="center">
