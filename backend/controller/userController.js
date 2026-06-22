@@ -1,5 +1,4 @@
 
-import uploadOnCloudinary from "../config/cloudinary.js"
 import User from "../model/userModel.js"
 
 
@@ -21,7 +20,7 @@ export const updateProfile = async (req, res) => {
         const {description, name} = req.body
         let photoUrl 
         if(req.file){
-            photoUrl = await uploadOnCloudinary(req.file.path)
+            photoUrl = req.file.path
         }
         const user = await User.findByIdAndUpdate(userId, {name, description, photoUrl})
 

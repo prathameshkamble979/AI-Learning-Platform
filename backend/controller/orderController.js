@@ -1,4 +1,5 @@
 import razorpay from 'razorpay'
+import crypto from 'crypto'
 import dotenv from 'dotenv'
 import Course from '../model/courseModel.js'
 import User from '../model/userModel.js'
@@ -19,7 +20,7 @@ export const RazorpayOrder = async (req,res) => {
         const options = {
             amount : course.price * 100,
             currency : "INR",
-            receipt :`${courseId}.toString()`
+            receipt : courseId.toString()
         }
 
         const order = await RazorPayInstance.orders.create(options)
@@ -31,10 +32,14 @@ export const RazorpayOrder = async (req,res) => {
 
 export const verifyPayment = async (req,res) => {
     try {
-        const {courseId, userId, razorpay_order_id} = req.body
-        const orderInfo = await RazorPayInstance.orders.fetch(razorpay_order_id)
+        const {courseId, userId, razorpay_order_id, razorpay_payment_id, razorpay_signature} = req.body
+        
+        const generatedSignature = crypto
+            .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
+            .update(razorpay_order_id + "|" + razorpay_payment_id)
+            .digest('hex');
 
-        if(orderInfo.status === 'paid'){
+        if(generatedSignature === razorpay_signature){
             const user = await User.findById(userId)
             if(!user.enrolledCourses.includes(courseId)){
                 await user.enrolledCourses.push(courseId)

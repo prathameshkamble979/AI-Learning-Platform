@@ -1,14 +1,24 @@
 import multer from "multer"
+import { CloudinaryStorage } from "multer-storage-cloudinary"
+import { v2 as cloudinary } from 'cloudinary'
+import dotenv from "dotenv"
 
-let storage = multer.diskStorage({
-    destination: (req, file, cb)=> {
-        cb(null, "./public")
-    },
-    filename : (req, file, cb)=>{
-        cb(null, file.originalname)
-    }
-        
-})
-const upload = multer({ storage})
+dotenv.config()
+
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'AI-Learning-Platform',
+    resource_type: 'auto'
+  },
+});
+
+const upload = multer({ storage })
 
 export default upload

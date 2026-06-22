@@ -1,4 +1,4 @@
-import uploadOnCloudinary from "../config/cloudinary.js"
+
 import Course from "../model/courseModel.js"
 import Lecture from "../model/lectureModel.js"
 import User from "../model/userModel.js"
@@ -51,7 +51,7 @@ export const editCourse = async (req,res) => {
         const {title, subTitle, description, category, level, isPublished, price} = req.body
         let thumbnail
         if(req.file){
-            thumbnail = await uploadOnCloudinary(req.file.path)
+            thumbnail = req.file.path
         }
         let course = await Course.findById(courseId)
         if(!course){
@@ -141,7 +141,7 @@ export const editLecture = async (req,res) => {
         }
         let videoUrl
         if(req.file){
-            videoUrl = await uploadOnCloudinary(req.file.path)
+            videoUrl = req.file.path
             lecture.videoUrl = videoUrl
         }
         if(lectureTitle){

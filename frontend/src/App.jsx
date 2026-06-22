@@ -32,7 +32,16 @@ function App() {
   getCreatorCourse()
   getPublishedCourse()
   getAllReviews()
-  const {userData} = useSelector(state=>state.user)
+  const {userData, isLoading} = useSelector(state=>state.user)
+  
+  if (isLoading) {
+    return (
+      <div className='h-screen flex items-center justify-center bg-gray-50'>
+        <div className='text-xl font-semibold text-gray-700 animate-pulse'>Loading application...</div>
+      </div>
+    )
+  }
+
   return (
     <>
     <ToastContainer />

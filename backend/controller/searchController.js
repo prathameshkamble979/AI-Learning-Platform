@@ -43,29 +43,17 @@ export const searchWithAi = async (req,res) => {
 
         const courses = await Course.find({
             isPublished:true ,
-            $or : [
-                {title : {$regex : input , $options : 'i'}},
-                {subTitle : {$regex : input , $options : 'i'}},
-                {description : {$regex : input , $options : 'i'}},
-                {category : {$regex : input , $options : 'i'}},
-                {level : {$regex : input , $options : 'i'}}
-            ]
+            $text: { $search: input }
         });
         if(courses.length > 0 ){
             return res.status(200).json(courses)
         }
         else{
-            const courses = await Course.find({
+            const aiCourses = await Course.find({
             isPublished:true ,
-            $or : [
-                {title : {$regex : keyword , $options : 'i'}},
-                {subTitle : {$regex : keyword , $options : 'i'}},
-                {description : {$regex : keyword , $options : 'i'}},
-                {category : {$regex : keyword , $options : 'i'}},
-                {level : {$regex : keyword , $options : 'i'}}
-            ]
+            $text: { $search: keyword }
         });
-        return res.status(200).json(courses)
+        return res.status(200).json(aiCourses)
         }
         
     } catch (error) {
