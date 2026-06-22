@@ -4,7 +4,7 @@ import { serverUrl } from '../App'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCreatorCourseData } from '../redux/courseSlice'
 
-function getCreatorCourse() {
+function useCreatorCourse() {
     const dispatch = useDispatch()
     const {userData} = useSelector(state=>state.user)
   return (
@@ -26,4 +26,4 @@ function getCreatorCourse() {
   )
 }
 
-export default getCreatorCourse
+export default useCreatorCourse

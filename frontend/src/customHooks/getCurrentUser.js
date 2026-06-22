@@ -5,7 +5,7 @@ import { setUserData, setLoading } from '../redux/userSlice'
 import axios from 'axios'
 import { serverUrl } from '../App'
 
-const getCurrentUser = () => {
+const useCurrentUser = () => {
     const dispatch = useDispatch()
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,4 +23,4 @@ const getCurrentUser = () => {
   },[])
 }
 
-export default getCurrentUser
+export default useCurrentUser
