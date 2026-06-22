@@ -1,6 +1,4 @@
 <div align="center">
-  <img src="https://via.placeholder.com/1000x300?text=Virtual+Courses+Hero+Banner" alt="Virtual Courses Hero Banner" />
-
   <br />
   
   # 🎓 Virtual Courses - AI Learning Platform
