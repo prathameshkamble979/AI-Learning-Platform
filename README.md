@@ -36,30 +36,18 @@ Featuring a robust multi-role architecture, secure payment processing via Razorp
 - 🔐 **Advanced Security:** JWT-based authentication, HttpOnly cookies, OTP password resets, and bcrypt password hashing.
 - ⚡ **Optimized Search Engine:** High-performance MongoDB `$text` indexing across course catalogs.
 
----
 
-## 📸 Platform Previews
-
-| Educator Dashboard | AI Search Interface |
-| :---: | :---: |
-| <img src="https://via.placeholder.com/500x300?text=Educator+Dashboard" alt="Educator Dashboard" /> | <img src="https://via.placeholder.com/500x300?text=AI+Search+Interface" alt="AI Search Interface" /> |
-| **Course Catalog** | **Lecture Video Player** |
-| <img src="https://via.placeholder.com/500x300?text=Course+Catalog" alt="Course Catalog" /> | <img src="https://via.placeholder.com/500x300?text=Lecture+Player" alt="Lecture Player" /> |
-
-*(Replace the placeholder URLs above with actual screenshots of your application.)*
-
----
 
 ## 🏗 System Architecture
 
 ```mermaid
 graph TD
-    Client[Frontend Client<br/>React + Vite + Redux]
-    API[Backend API<br/>Node.js + Express]
-    DB[(MongoDB<br/>Atlas)]
-    Cloudinary[(Cloudinary<br/>Media Storage)]
-    Gemini[Google Gemini AI<br/>Search API]
-    Razorpay[Razorpay<br/>Payment Gateway]
+    Client["Frontend Client<br/>React + Vite + Redux"]
+    API["Backend API<br/>Node.js + Express"]
+    DB[("MongoDB<br/>Atlas")]
+    Cloudinary[("Cloudinary<br/>Media Storage")]
+    Gemini["Google Gemini AI<br/>Search API"]
+    Razorpay["Razorpay<br/>Payment Gateway"]
 
     Client -->|REST/JSON| API
     API <-->|Mongoose| DB
